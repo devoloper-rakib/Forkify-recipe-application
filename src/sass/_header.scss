@@ -9,6 +9,10 @@
 		margin-left: 4rem;
 		height: 4.6rem;
 		display: block;
+
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
 

@@ -154,6 +154,11 @@ const welcome = function () {
 	}
 };
 
+const loadLogo = document.getElementById('loadLogo');
+loadLogo.addEventListener('click', function () {
+	window.location.href = 'https://forkify-find-your-recipe.netlify.app/';
+});
+
 // Point : added Event Listener ( must be in the bottom )
 const init = function () {
 	welcome();

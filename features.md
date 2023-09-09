@@ -2,6 +2,8 @@
 
 <!--/ I have build this  application  using this  api : https://forkify-api.herokuapp.com/v2 -->
 
+<!-- error Only good on 670px device before that webpage is not responsive -->
+
 <!-- TODO 1 : Added Number of pages between the pagination buttons; -->
 
 <!-- TODO 2 : Ability to sort search results by duration or number of ingredients -->

@@ -264,6 +264,10 @@ body {
   display: block;
 }
 
+.header__logo:hover {
+  cursor: pointer;
+}
+
 .search {
   background-color: #fff;
   border-radius: 10rem;
