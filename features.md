@@ -17,3 +17,5 @@
 <!-- TODO 6 : weekly meal planning feature: assign recipes to the next  7 days and show on a weekly calendar -->
 
 <!-- TODO 7 : get nutrition data on each ingredient from spectacular API (https://spoonacular.com/food-api/docs) and calculate total calories of recipe -->
+
+<!-- TODO 8 : DELETE Your own recipe -->
