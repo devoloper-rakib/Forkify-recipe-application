@@ -2926,7 +2926,7 @@ class RecipeView extends (0, _viewJsDefault.default) {
         <use href="${0, _iconsSvgDefault.default}#icon-check"></use>
       </svg>
       <div class="recipe__quantity">
-        ${ing.quantity !== null && ing.quantity !== undefined ? ing.quantity.toFixed(2) : ""}
+        ${typeof ing.quantity === "string" ? fractionToDecimal(ing.quantity).toFixed(2) : ing.quantity !== null && ing.quantity !== undefined && ing.quantity > 0 ? ing.quantity.toFixed(2) : ""}
       </div>
       <div class="recipe__description">
         <span class="recipe__unit">${ing.unit}</span>
@@ -2935,6 +2935,13 @@ class RecipeView extends (0, _viewJsDefault.default) {
     </li>
   `;
     }
+}
+function fractionToDecimal(fraction) {
+    if (!fraction) return "";
+    const [numerator, denominator] = fraction.split("/").map(Number);
+    if (!denominator || isNaN(numerator) || isNaN(denominator)) return "";
+    const decimalValue = numerator / denominator;
+    return decimalValue.toFixed(2);
 }
 exports.default = new RecipeView();
 

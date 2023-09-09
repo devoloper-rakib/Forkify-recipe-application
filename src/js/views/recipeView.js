@@ -135,7 +135,11 @@ class RecipeView extends View {
       </svg>
       <div class="recipe__quantity">
         ${
-					ing.quantity !== null && ing.quantity !== undefined
+					typeof ing.quantity === 'string'
+						? fractionToDecimal(ing.quantity).toFixed(2)
+						: ing.quantity !== null &&
+						  ing.quantity !== undefined &&
+						  ing.quantity > 0
 						? ing.quantity.toFixed(2)
 						: ''
 				}
@@ -147,6 +151,20 @@ class RecipeView extends View {
     </li>
   `;
 	}
+}
+
+function fractionToDecimal(fraction) {
+	if (!fraction) return '';
+
+	const [numerator, denominator] = fraction.split('/').map(Number);
+
+	if (!denominator || isNaN(numerator) || isNaN(denominator)) {
+		return '';
+	}
+
+	const decimalValue = numerator / denominator;
+
+	return decimalValue.toFixed(2);
 }
 
 export default new RecipeView();
