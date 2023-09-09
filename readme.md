@@ -2,6 +2,14 @@
 
 Forkify Recipe Search is a web application that allows users to search for recipes and view their details. Users can also add their own recipes.
 
+<p>&nbsp;</p>
+
+<div align="center"   >
+  <img src="https://i.ibb.co/7pG8wR5/forkify.png" alt="Mapty Banner" width="100%">
+</div>
+
+<p>&nbsp;</p>
+
 ## Features
 
 - Search for recipes using keywords.
