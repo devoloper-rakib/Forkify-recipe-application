@@ -13,17 +13,9 @@ import paginationView from './views/paginationView..js';
 import addRecipeView from './views/addRecipeView.js';
 import { MODAL_CLOSE_SEC } from '../js/config.js';
 
-// Point : declare variable
-
-// Point : Hot Module Replacement
-// if (module.hot) {
-// 	module.hot.accept();
-// }
-
 // https://forkify-api.herokuapp.com/v2
 
 ///////////////////////////////////////
-// console.log('working...');
 
 // Point : added Show Recipe function
 
@@ -152,8 +144,19 @@ const controlAddRecipe = async function (newRecipe) {
 	}
 };
 
+const welcome = function () {
+	const hasVisitedBefore = localStorage.getItem('hasVisitedBefore');
+
+	if (!hasVisitedBefore) {
+		alert('Welcome to the Forkify App!');
+		console.log('Welcome to the Forkify App!');
+		localStorage.setItem('hasVisitedBefore', true);
+	}
+};
+
 // Point : added Event Listener ( must be in the bottom )
 const init = function () {
+	welcome();
 	bookmarksView.addHandlerRender(controlBookmarks);
 	recipeView.addHandlerRender(controlRecipe);
 	recipeView.addHandlerUpdateServings(controlServings);

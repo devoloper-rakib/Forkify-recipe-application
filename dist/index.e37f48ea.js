@@ -593,14 +593,8 @@ var _addRecipeViewJs = require("./views/addRecipeView.js");
 var _addRecipeViewJsDefault = parcelHelpers.interopDefault(_addRecipeViewJs);
 var _configJs = require("../js/config.js");
 console.log("controller.js working...");
-// Point : declare variable
-// Point : Hot Module Replacement
-// if (module.hot) {
-// 	module.hot.accept();
-// }
 // https://forkify-api.herokuapp.com/v2
 ///////////////////////////////////////
-// console.log('working...');
 // Point : added Show Recipe function
 const controlRecipe = async function() {
     // Point : loading recipe ( try catch finally )
@@ -698,8 +692,17 @@ const controlAddRecipe = async function(newRecipe) {
         (0, _addRecipeViewJsDefault.default).renderError(error.message);
     }
 };
+const welcome = function() {
+    const hasVisitedBefore = localStorage.getItem("hasVisitedBefore");
+    if (!hasVisitedBefore) {
+        alert("Welcome to the Forkify App!");
+        console.log("Welcome to the Forkify App!");
+        localStorage.setItem("hasVisitedBefore", true);
+    }
+};
 // Point : added Event Listener ( must be in the bottom )
 const init = function() {
+    welcome();
     (0, _bookmarkViewJsDefault.default).addHandlerRender(controlBookmarks);
     (0, _recipeViewJsDefault.default).addHandlerRender(controlRecipe);
     (0, _recipeViewJsDefault.default).addHandlerUpdateServings(controlServings);
@@ -2922,7 +2925,9 @@ class RecipeView extends (0, _viewJsDefault.default) {
       <svg class="recipe__icon">
         <use href="${0, _iconsSvgDefault.default}#icon-check"></use>
       </svg>
-      <div class="recipe__quantity">${ing.quantity.toFixed(2) || ""}</div>
+      <div class="recipe__quantity">
+        ${ing.quantity !== null && ing.quantity !== undefined ? ing.quantity.toFixed(2) : ""}
+      </div>
       <div class="recipe__description">
         <span class="recipe__unit">${ing.unit}</span>
         ${ing.description}
